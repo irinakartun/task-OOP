@@ -32,7 +32,7 @@ public class FileReaderWriter {
 		collectedDevices.setDevicesList(devicesList);
 		BufferedReader inputStream = null;
 		try {
-			inputStream = new BufferedReader(new FileReader("d:\\devices.txt"));
+			inputStream = new BufferedReader(new FileReader("src/main/resources/input/devices"));
 			String l;
 			while ((l = inputStream.readLine()) != null) {
 				String[] line = l.split("/");
@@ -155,7 +155,7 @@ public class FileReaderWriter {
 																		// to
 																		// file
 		try {
-			outputStream = new PrintWriter(new FileWriter("d:\\results.txt"));
+			outputStream = new PrintWriter(new FileWriter("src/main/resources/output/results"));
 			for (int i = 0; i < collectedDevices.getDevicesList().size(); i++) {
 				outputStream.println(collectedDevices.getDevicesList().get(i)
 						.getInfo());
@@ -177,7 +177,7 @@ public class FileReaderWriter {
 																		// to
 																		// file
 		try {
-			outputStream = new PrintWriter(new FileWriter("d:\\results.txt",
+			outputStream = new PrintWriter(new FileWriter("src/main/resources/output/results",
 					true));
 			outputStream.println("Total power of plugged in devices is: "
 					+ power);
@@ -200,7 +200,7 @@ public class FileReaderWriter {
 		BufferedReader inputStream = null;
 		String[] criteria = null;
 		try {
-			inputStream = new BufferedReader(new FileReader("d:\\criteria.txt"));
+			inputStream = new BufferedReader(new FileReader("src/main/resources/input/criteria"));
 			String line;
 			while ((line = inputStream.readLine()) != null) {
 				criteria = line.split("/");
@@ -233,7 +233,7 @@ public class FileReaderWriter {
 																				// the
 																				// method
 			}
-			outputStream = new PrintWriter(new FileWriter("d:\\results.txt",
+			outputStream = new PrintWriter(new FileWriter("src/main/resources/output/results",
 					true));
 			outputStream
 					.println("The list of devices that correspond criteria:");
