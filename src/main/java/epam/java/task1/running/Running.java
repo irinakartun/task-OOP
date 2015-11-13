@@ -1,26 +1,29 @@
 package epam.java.task1.running;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import epam.java.task1.electricDevices.ElectricDevices;
-import epam.java.task1.homeDevices.BeautyGadgets;
+import epam.java.task1.exceptions.EmptyCollectionException;
+import epam.java.task1.exceptions.WrongPowerException;
+import epam.java.task1.exceptions.WrongDeviceTypeException;
+import epam.java.task1.exceptions.WrongPluggedInValue;
 
 public class Running {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, WrongDeviceTypeException, WrongPluggedInValue, WrongPowerException {
 
-		String deviceName;
-		String deviceColour;
-		String devicePower;
-		String pluggedIn;
-		String gender;
-		String specialisation;
-		String room;
-		ArrayList<ElectricDevices> devicesList = new ArrayList<ElectricDevices>();
-		CollectHomeDevices collectedDevices = new CollectHomeDevices();
-		collectedDevices.setDevicesList(devicesList);
-
+//		String deviceName;
+//		String deviceColour;
+//		String devicePower;
+//		String pluggedIn;
+//		String gender;
+//		String specialisation;
+//		String room;
+//		ArrayList<ElectricDevices> devicesList = new ArrayList<ElectricDevices>();
+//		CollectHomeDevices collectedDevices = new CollectHomeDevices();
+//		collectedDevices.setDevicesList(devicesList);
+/*
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("\nWould you like to add new device?");
 		String answer = scanner.nextLine().toLowerCase();
@@ -91,7 +94,32 @@ public class Running {
 		collectedDevices.sortDevicesListByName();
 		collectedDevices.calculatePower();
 		collectedDevices.findByCriteria();
+*/
+		CollectHomeDevices devicesFromFile = new CollectHomeDevices();
+		
+		devicesFromFile = FileReaderWriter.readDevicesFromFile();
 
+		
+		
+		devicesFromFile.sortDevicesListByName();
+		FileReaderWriter.writeSortingResultsToFile(devicesFromFile);
+		FileReaderWriter.writePowerToFile(devicesFromFile.calculatePower());
+		
+		ArrayList<ElectricDevices> correspDevices = new ArrayList<ElectricDevices>();
+			correspDevices = devicesFromFile.findByCriteria(FileReaderWriter.readCriteriaFromFile());
+		
+		try {
+			FileReaderWriter.writeFoundByCriteriaDeviceToFile(correspDevices);
+		} catch (EmptyCollectionException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+		
+		
 	}
-
 }
