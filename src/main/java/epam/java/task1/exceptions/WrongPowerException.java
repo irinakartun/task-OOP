@@ -1,15 +1,10 @@
 package epam.java.task1.exceptions;
 
-public class WrongPowerException extends Exception{
+public class WrongPowerException extends RuntimeException{
 	
-	private String power;
-
-	public WrongPowerException(String power) {
-		this.power = power;
+	public WrongPowerException(String errorMessage) {
+		super(errorMessage);
 	}
 
-	public String getPower() {
-		return power;
-	}
 
 }

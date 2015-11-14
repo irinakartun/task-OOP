@@ -20,19 +20,15 @@ public class FileReaderWriter {
 
 	static PrintWriter outputStream = null;
 
-	public static CollectHomeDevices readDevicesFromFile() throws IOException, // method
-																				// of
-																				// device
-																				// reading
-																				// from
-																				// file
+	public static CollectHomeDevices readDevicesFromFile() throws IOException,
 			WrongDeviceTypeException, WrongPluggedInValue, WrongPowerException {
 		ArrayList<ElectricDevices> devicesList = new ArrayList<ElectricDevices>();
 		CollectHomeDevices collectedDevices = new CollectHomeDevices();
 		collectedDevices.setDevicesList(devicesList);
 		BufferedReader inputStream = null;
 		try {
-			inputStream = new BufferedReader(new FileReader("src/main/resources/input/devices"));
+			inputStream = new BufferedReader(new FileReader(
+					"src/main/resources/input/devices"));
 			String l;
 			while ((l = inputStream.readLine()) != null) {
 				String[] line = l.split("/");
@@ -40,92 +36,34 @@ public class FileReaderWriter {
 				if (!(line[0].equalsIgnoreCase("beauty gadget"))
 						&& !(line[0].equalsIgnoreCase("ñlimat equipment"))
 						&& !(line[0].equalsIgnoreCase("household appliance"))) {
-					throw new WrongDeviceTypeException(line[0]); // exception
-																	// if the
-																	// device
-																	// type
-																	// doesn't
-																	// exist
+					throw new WrongDeviceTypeException("Specified device type:"
+							+ line[0] + " is not valid!");
 				} else {
 
 					switch (line[0].toLowerCase()) {
 					case "beauty gadget":
-						if (!(line[4].equalsIgnoreCase("true"))
-								&& !(line[4].equalsIgnoreCase("false"))) {
-							throw new WrongPluggedInValue(line[4]); // exception
-																	// if the
-																	// value of
-																	// IsPluggedIn
-																	// is
-																	// invalid
-						} else {
-							if (!line[3].matches("^[0-9]\\d*$")) {
-								throw new WrongPowerException(line[3]); // negative
-																		// o
-																		// non-integer
-																		// value
-																		// of
-																		// power
-							} else {
-								ElectricDevices bGadget = new BeautyGadgets(
-										line[1], line[2],
-										Integer.parseInt(line[3]),
-										Boolean.parseBoolean(line[4]), line[5]);
-								collectedDevices.getDevicesList().add(bGadget);
-							}
-						}
+						wrongIsPluggedInValue(line[4]);
+						wrongPowerValue(line[3]);
+						ElectricDevices bGadget = new BeautyGadgets(line[1],
+								line[2], Integer.parseInt(line[3]),
+								Boolean.parseBoolean(line[4]), line[5]);
+						collectedDevices.getDevicesList().add(bGadget);
 						break;
 					case "ñlimat equipment":
-						if (!(line[4].equalsIgnoreCase("true"))
-								&& !(line[4].equalsIgnoreCase("false"))) {
-							throw new WrongPluggedInValue(line[4]); // exception
-																	// if the
-																	// value of
-																	// IsPluggedIn
-																	// is
-																	// invalid
-						} else {
-							if (!line[3].matches("^[0-9]\\d*$")) {
-								throw new WrongPowerException(line[3]); // negative
-																		// o
-																		// non-integer
-																		// value
-																		// of
-																		// power
-							} else {
-								ElectricDevices cGadget = new ClimatEquipment(
-										line[1], line[2],
-										Integer.parseInt(line[3]),
-										Boolean.parseBoolean(line[4]), line[5]);
-								collectedDevices.getDevicesList().add(cGadget);
-							}
-						}
+						wrongIsPluggedInValue(line[4]);
+						wrongPowerValue(line[3]);
+						ElectricDevices cGadget = new ClimatEquipment(line[1],
+								line[2], Integer.parseInt(line[3]),
+								Boolean.parseBoolean(line[4]), line[5]);
+						collectedDevices.getDevicesList().add(cGadget);
 						break;
 					case "household appliance":
-						if (!(line[4].equalsIgnoreCase("true"))
-								&& !(line[4].equalsIgnoreCase("false"))) {
-							throw new WrongPluggedInValue(line[4]); // exception
-																	// if the
-																	// value of
-																	// IsPluggedIn
-																	// is
-																	// invalid
-						} else {
-							if (!line[3].matches("^[0-9]\\d*$")) {
-								throw new WrongPowerException(line[3]); // negative
-																		// o
-																		// non-integer
-																		// value
-																		// of
-																		// power
-							} else {
-								ElectricDevices hGadget = new ClimatEquipment(
-										line[1], line[2],
-										Integer.parseInt(line[3]),
-										Boolean.parseBoolean(line[4]), line[5]);
-								collectedDevices.getDevicesList().add(hGadget);
-							}
-						}
+						wrongIsPluggedInValue(line[4]);
+						wrongPowerValue(line[3]);
+						ElectricDevices hGadget = new ClimatEquipment(line[1],
+								line[2], Integer.parseInt(line[3]),
+								Boolean.parseBoolean(line[4]), line[5]);
+						collectedDevices.getDevicesList().add(hGadget);
 						break;
 					default:
 						System.out.println("Specified device is not valid!");
@@ -133,10 +71,9 @@ public class FileReaderWriter {
 
 				}
 			}
-		} catch (FileNotFoundException e) { // catch if input file is not found
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		} catch (IOException e) { // catch if there's an error during file
-									// reading
+		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
 			if (inputStream != null) {
@@ -147,15 +84,10 @@ public class FileReaderWriter {
 	}
 
 	public static void writeSortingResultsToFile(
-			CollectHomeDevices collectedDevices) throws IOException { // method
-																		// for
-																		// writing
-																		// sort
-																		// results
-																		// to
-																		// file
+			CollectHomeDevices collectedDevices) throws IOException {
 		try {
-			outputStream = new PrintWriter(new FileWriter("src/main/resources/output/results"));
+			outputStream = new PrintWriter(new FileWriter(
+					"src/main/resources/output/results"));
 			for (int i = 0; i < collectedDevices.getDevicesList().size(); i++) {
 				outputStream.println(collectedDevices.getDevicesList().get(i)
 						.getInfo());
@@ -169,16 +101,10 @@ public class FileReaderWriter {
 		}
 	}
 
-	public static void writePowerToFile(int power) throws IOException { // method
-																		// for
-																		// writing
-																		// total
-																		// power
-																		// to
-																		// file
+	public static void writePowerToFile(int power) throws IOException {
 		try {
-			outputStream = new PrintWriter(new FileWriter("src/main/resources/output/results",
-					true));
+			outputStream = new PrintWriter(new FileWriter(
+					"src/main/resources/output/results", true));
 			outputStream.println("Total power of plugged in devices is: "
 					+ power);
 		} catch (IOException e) {
@@ -190,22 +116,17 @@ public class FileReaderWriter {
 		}
 	}
 
-	public static String[] readCriteriaFromFile() throws IOException { // method
-																		// for
-																		// reading
-																		// search
-																		// criteria
-																		// from
-																		// file
+	public static String[] readCriteriaFromFile() throws IOException {
 		BufferedReader inputStream = null;
 		String[] criteria = null;
 		try {
-			inputStream = new BufferedReader(new FileReader("src/main/resources/input/criteria"));
+			inputStream = new BufferedReader(new FileReader(
+					"src/main/resources/input/criteria"));
 			String line;
 			while ((line = inputStream.readLine()) != null) {
 				criteria = line.split("/");
 			}
-		} catch (FileNotFoundException e) { // catch if input file is not found
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -219,22 +140,14 @@ public class FileReaderWriter {
 
 	public static void writeFoundByCriteriaDeviceToFile(
 			ArrayList<ElectricDevices> correspDevices) throws IOException,
-			EmptyCollectionException { // method for writing search results to
-										// file
+			EmptyCollectionException {
 		try {
 			if (correspDevices.isEmpty()) {
 				throw new EmptyCollectionException(
-						"There are no devices that correspond your criteria!"); // if
-																				// empty
-																				// collection
-																				// is
-																				// passed
-																				// into
-																				// the
-																				// method
+						"There are no devices that correspond your criteria!");
 			}
-			outputStream = new PrintWriter(new FileWriter("src/main/resources/output/results",
-					true));
+			outputStream = new PrintWriter(new FileWriter(
+					"src/main/resources/output/results", true));
 			outputStream
 					.println("The list of devices that correspond criteria:");
 			for (int i = 0; i < correspDevices.size(); i++) {
@@ -246,6 +159,21 @@ public class FileReaderWriter {
 			if (outputStream != null) {
 				outputStream.close();
 			}
+		}
+	}
+
+	public static void wrongIsPluggedInValue(String isPluggedIn) {
+		if (!(isPluggedIn.equalsIgnoreCase("true"))
+				&& !(isPluggedIn.equalsIgnoreCase("false"))) {
+			throw new WrongPluggedInValue("Specified value of isPluggedIn: "
+					+ isPluggedIn + " is not valid!");
+		}
+	}
+
+	public static void wrongPowerValue(String power) {
+		if (!power.matches("^[0-9]\\d*$")) {
+			throw new WrongPowerException("Specified device power: " + power
+					+ " is invalid!");
 		}
 	}
 

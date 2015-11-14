@@ -1,15 +1,9 @@
 package epam.java.task1.exceptions;
 
-public class WrongPluggedInValue extends Exception{
+public class WrongPluggedInValue extends RuntimeException{
 	
-	private String pluggedIn;
-
-	public WrongPluggedInValue(String pluggedIn) {
-		this.pluggedIn = pluggedIn;
-	}
-
-	public String getIsPluggedIn() {
-		return pluggedIn;
+	public WrongPluggedInValue(String errorMessage) {
+		super(errorMessage);
 	}
 
 }

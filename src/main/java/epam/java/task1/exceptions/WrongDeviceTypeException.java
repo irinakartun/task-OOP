@@ -1,15 +1,9 @@
 package epam.java.task1.exceptions;
 
-public class WrongDeviceTypeException extends Exception {
+public class WrongDeviceTypeException extends RuntimeException {
 
-	private String deviceType;
-
-	public WrongDeviceTypeException(String deviceType) {
-		this.deviceType = deviceType;
-	}
-
-	public String getDeviceType() {
-		return deviceType;
+	public WrongDeviceTypeException(String errorMessage) {
+		super(errorMessage);
 	}
 
 }
