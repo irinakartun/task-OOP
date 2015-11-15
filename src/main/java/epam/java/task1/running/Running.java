@@ -18,9 +18,9 @@ public class Running {
 		devicesFromFile.sortDevicesListByName();
 		FileReaderWriter.writeSortingResultsToFile(devicesFromFile);
 		FileReaderWriter.writePowerToFile(devicesFromFile.calculatePower());
-		devicesFromFile.findByCriteria(FileReaderWriter.readCriteriaFromFile());
+//		devicesFromFile.findByCriteria(FileReaderWriter.readCriteriaFromFile());
 		try {
-			FileReaderWriter.writeFoundByCriteriaDeviceToFile(devicesFromFile.getDevicesList());
+			FileReaderWriter.writeFoundByCriteriaDeviceToFile(devices.findByCriteria(textFile.readCriteriaFromFile()));
 		} catch (EmptyCollectionException e) {
 			e.printStackTrace();
 		}
