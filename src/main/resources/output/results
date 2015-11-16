@@ -1,4 +1,6 @@
 
+List of devices sorted by name:
+
  Name: air condition
  Colour: white
  Device Power: 250
@@ -16,7 +18,9 @@
  Device Power: 100
  Is plugges in: false
  Specialisation: kitchen
+
 Total power of plugged in devices is: 325
+
 The list of devices that correspond criteria:
 
  Name: air condition

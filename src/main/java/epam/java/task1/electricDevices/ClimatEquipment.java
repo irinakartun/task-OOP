@@ -1,6 +1,5 @@
-package epam.java.task1.homeDevices;
+package epam.java.task1.electricDevices;
 
-import epam.java.task1.electricDevices.ElectricDevices;
 
 public class ClimatEquipment extends ElectricDevices {
 

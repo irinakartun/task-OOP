@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<devices> 
+	<device type="household appliance">
+		<name>washing machine</name>
+		<colour>white</colour>
+		<power>350</power>
+		<pluggedin>true</pluggedin>
+		<attribute>for bathroom</attribute>
+	</device>
+	<device type="beauty gadget">
+		<name>razor</name>
+		<colour>black</colour>
+		<power>75</power>
+		<pluggedin>false</pluggedin>
+		<attribute>male</attribute>
+	</device>
+	<device type="climat equipment">
+		<name>heater</name>
+		<colour>green</colour>
+		<power>220</power>
+		<pluggedin>true</pluggedin>
+		<attribute>for heating</attribute>
+	</device>
+</devices>

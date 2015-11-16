@@ -1,11 +1,10 @@
-package epam.java.task1.running;
+package epam.java.task1.electricDevices;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
-import epam.java.task1.electricDevices.ElectricDevices;
 import epam.java.task1.exceptions.EmptyCollectionException;
 
 public class CollectHomeDevices implements Comparator<ElectricDevices> {
@@ -24,16 +23,7 @@ public class CollectHomeDevices implements Comparator<ElectricDevices> {
 	}
 
 	public CollectHomeDevices sortDevicesListByName() {
-		// System.out.println("\nObjects before sorting:");
-		// for (int i = 0; i < this.devicesList.size(); i++) {
-		// System.out.println(this.devicesList.get(i).getInfo());
-		// }
-
-		// System.out.println("\nObjects sorted by name:");
 		Collections.sort(this.devicesList, new CollectHomeDevices());
-		// for (int i = 0; i < this.devicesList.size(); i++) {
-		// System.out.println(this.devicesList.get(i).getInfo());
-		// }
 		return this;
 	}
 
@@ -51,18 +41,10 @@ public class CollectHomeDevices implements Comparator<ElectricDevices> {
 			power += this.devicesList.get(i).power(isPluggedIn);
 		}
 		return power;
-		// System.out.println("\nTotal power of plugged in devices is:" +
-		// power);
 	}
 
 	public ArrayList<ElectricDevices> findByCriteria(String[] criteria) {
-		// Scanner scanner = new Scanner(System.in);
-		// System.out.println("\nEnter device colour");
-		// String colour = scanner.nextLine();
-		// System.out.println("\nIs the device plugged in (true/false)?");
-		// String isPluggedIn = scanner.nextLine();
-		// System.out.println("\nEnter min device power");
-		// String power = scanner.nextLine();
+		
 		ArrayList<ElectricDevices> correspDevices = new ArrayList<ElectricDevices>();
 
 		for (int i = 0; i < this.devicesList.size(); i++) {
@@ -76,14 +58,6 @@ public class CollectHomeDevices implements Comparator<ElectricDevices> {
 			}
 		}
 		return correspDevices;
-		// if (this.devicesList.isEmpty()) {
-		// System.out.println("There are no devices that correspond your criteria!");
-		// } else {
-		// System.out.println("\nThe devices that corresponds creterias are:");
-		// for (int i = 0; i < correspDevices.size(); i++) {
-		// System.out.println(correspDevices.get(i).getInfo());
-		// }
-		// }
 	}
 
 }
