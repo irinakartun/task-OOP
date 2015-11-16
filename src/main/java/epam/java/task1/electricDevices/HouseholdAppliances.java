@@ -3,7 +3,7 @@ package epam.java.task1.electricDevices;
 
 public class HouseholdAppliances extends ElectricDevices {
 
-	private String room; // for kitchen or bathroom
+	private String room; 					// for kitchen or bathroom
 
 	public HouseholdAppliances(String name, String colour, int devicePower, boolean pluggedIn, String room) { // constructor
 		super(name, colour, devicePower, pluggedIn);
@@ -11,12 +11,12 @@ public class HouseholdAppliances extends ElectricDevices {
 	}
 
 	@Override
-	public int power(boolean pluggedIn) { // interface method of power
+	public int power(boolean pluggedIn) { 	// interface method of power
 											// calculation
 		if (pluggedIn) {
-			return devicePower; // for plugged in devices
+			return devicePower; 			// for plugged in devices
 		} else {
-			return 0; // for not plugged in devices
+			return 0; 						// for not plugged in devices
 		}
 	}
 

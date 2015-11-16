@@ -11,11 +11,11 @@ public class ClimatEquipment extends ElectricDevices {
 	}
 
 	@Override
-	public int power(boolean pluggedIn) { // interface method of power calculation
+	public int power(boolean pluggedIn) { 		// interface method of power calculation
 		if (pluggedIn) {
-			return devicePower; // for plugged in devices
+			return devicePower; 				// for plugged in devices
 		} else {
-			return 0; // for not plugged in devices
+			return 0; 							// for not plugged in devices
 		}
 	}
 

@@ -15,7 +15,6 @@ public interface Instance {
 
 	public CollectHomeDevices readFromInstance() throws SQLException,ParserConfigurationException, SAXException, IOException;
 
-	public void writeToInstance(CollectHomeDevices collectedDevices) throws SQLException, ParserConfigurationException, SAXException,
-																			IOException, TransformerConfigurationException,	TransformerException;
+	public void writeToInstance(CollectHomeDevices collectedDevices) throws SQLException, ParserConfigurationException, SAXException, IOException, TransformerConfigurationException,	TransformerException;
 
 }

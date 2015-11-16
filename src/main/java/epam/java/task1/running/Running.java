@@ -20,10 +20,7 @@ import epam.java.task1.instances.Xml;
 
 public class Running {
 
-	public static void main(String[] args) throws IOException,
-			WrongDeviceTypeException, WrongPluggedInValue, WrongPowerException,
-			SQLException, ParserConfigurationException, SAXException,
-			TransformerException {
+	public static void main(String[] args) throws IOException, WrongDeviceTypeException, WrongPluggedInValue, WrongPowerException, SQLException, ParserConfigurationException, SAXException, TransformerException {
 
 		CollectHomeDevices devices = new CollectHomeDevices();
 		System.out.println("-------- Start --------");

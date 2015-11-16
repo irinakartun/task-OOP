@@ -21,12 +21,11 @@ public class Database implements Instance {
 	
 	public String connectionString;
 	
-	
+
 	public Database(String connectionString){
 		this.connectionString = connectionString;
 	}
 	
-
 	@Override
 	public CollectHomeDevices readFromInstance() throws SQLException {
 

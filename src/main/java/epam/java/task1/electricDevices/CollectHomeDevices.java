@@ -3,9 +3,7 @@ package epam.java.task1.electricDevices;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Scanner;
 
-import epam.java.task1.exceptions.EmptyCollectionException;
 
 public class CollectHomeDevices implements Comparator<ElectricDevices> {
 

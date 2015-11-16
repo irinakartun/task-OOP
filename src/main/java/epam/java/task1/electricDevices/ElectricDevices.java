@@ -14,7 +14,7 @@ public abstract class ElectricDevices {
 		this.pluggedIn = pluggedIn;
 	}
 
-	abstract public int power(boolean pluggedIn); // abstract method for power calculation
+	abstract public int power(boolean pluggedIn); 	// abstract method for power calculation
 
 	public void setName(String name) {
 		this.name = name;

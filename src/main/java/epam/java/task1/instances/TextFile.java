@@ -42,9 +42,7 @@ public class TextFile implements Instance{
 			while ((l = inputStream.readLine()) != null) {
 				String[] line = l.split("/");
 
-				if (!(line[0].equalsIgnoreCase("beauty gadget"))
-						&& !(line[0].equalsIgnoreCase("ñlimat equipment"))
-						&& !(line[0].equalsIgnoreCase("household appliance"))) {
+				if (!(line[0].equalsIgnoreCase("beauty gadget")) && !(line[0].equalsIgnoreCase("ñlimat equipment"))	&& !(line[0].equalsIgnoreCase("household appliance"))) {
 					throw new WrongDeviceTypeException("Specified device type:" + line[0] + " is not valid!");
 				} else {
 

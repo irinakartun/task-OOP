@@ -102,8 +102,7 @@ public class Xml implements Instance{
 
 	
 	@Override
-	public void writeToInstance(CollectHomeDevices collectedDevices)
-			throws ParserConfigurationException, SAXException, IOException, TransformerException {
+	public void writeToInstance(CollectHomeDevices collectedDevices) throws ParserConfigurationException, SAXException, IOException, TransformerException {
 		// TODO Auto-generated method stub
 		try {
 			DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
