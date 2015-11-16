@@ -20,7 +20,7 @@ public class Running {
 		FileReaderWriter.writePowerToFile(devicesFromFile.calculatePower());
 //		devicesFromFile.findByCriteria(FileReaderWriter.readCriteriaFromFile());
 		try {
-			FileReaderWriter.writeFoundByCriteriaDeviceToFile(devices.findByCriteria(textFile.readCriteriaFromFile()));
+			FileReaderWriter.writeFoundByCriteriaDeviceToFile(devicesFromFile.findByCriteria(FileReaderWriter.readCriteriaFromFile()));
 		} catch (EmptyCollectionException e) {
 			e.printStackTrace();
 		}
