@@ -1,0 +1,31 @@
+<suite name="oop task suite" verbose="1">
+    <test name="Beauty gadget tests">
+        <classes>
+            <class name="epam.com.java.task1.tests.BeautyGadgetTests"/>
+        </classes>
+    </test>
+
+    <test name="Сollect home devices tests">
+        <classes>
+            <class name="epam.com.java.task1.tests.СollectHomeDevicesTests"/>
+        </classes>
+    </test>
+
+    <test name="Database tests">
+        <classes>
+            <class name="epam.com.java.task1.tests.DatabaseTests"/>
+        </classes>
+    </test>
+
+    <test name="Text file tests">
+        <classes>
+            <class name="epam.com.java.task1.tests.TextFileTests"/>
+        </classes>
+    </test>
+
+    <test name="Xml tests">
+        <classes>
+            <class name="epam.com.java.task1.tests.XmlTests"/>
+        </classes>
+    </test>
+</suite>
