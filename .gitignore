@@ -1,1 +1,8 @@
 /target
+.idea
+.metadata
+.settings
+task.iml
+.project
+.classpath
+src/main/java/resources/output/
